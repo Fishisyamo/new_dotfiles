@@ -1,0 +1,9 @@
+*~
+.DS_Store
+.idea
+
+/.bundle
+/vendor/bundle
+
+untitled.rb
+ghost.rb
