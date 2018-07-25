@@ -135,7 +135,7 @@ alias tls="tmux ls"
 alias tat="tmux a -t"
 alias tatt="tmux attach"
 alias tnsm="tns main"
-alias tnsl="tns lessons"
+alias tnsl="tns learn"
 
 # rbenv
 alias rex="rbenv exec"
@@ -145,8 +145,25 @@ alias rglo="rbenv global"
 # bundle
 alias be="bundle exec"
 
+# Git
+alias gada="git add -A"
+alias gcmm="git commit -m"
+alias gst="git status"
+alias gmg="git merge"
+alias gmgs="git merge --squash"
+alias gbr="git branch"
+alias gco="git checkout"
+alias gcob="git checkout -b"
+alias grao="git remote add origin"
+alias gcname="git config --local user.name"
+alias gcmail="git config --local user.mail"
+
 # dir
-alias rles="cd ~/RubymineProjects/learn"
+alias cdd="cd !$"
+alias cdo="cd ~/Documents/doc"
+alias cpr="cd ~/project"
+alias rle="cd ~/RubymineProjects/learn"
+
 # -------------------------------------
 # キーバインド
 # -------------------------------------

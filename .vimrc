@@ -141,6 +141,9 @@ NeoBundle 'smerrill/vcl-vim-plugin'
 "" lexima 閉じ括弧補完
 NeoBundle 'cohama/lexima.vim'
 
+"" logファイルに色付け
+NeoBundle 'vim-scripts/AnsiEsc.vim'
+
 call neobundle#end()
 
 " Required:
