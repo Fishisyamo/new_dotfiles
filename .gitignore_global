@@ -5,7 +5,12 @@
 /.bundle
 /vendor/bundle
 
-ghost.rb
-ghost.html.erb
-ghost.scss
+/ghost.rb
+/ghost_spec.rb
+/ghost.html.erb
+/ghost.scss
+/ghost.html
+/ghost.css
+/ghost.js
 
+/.env

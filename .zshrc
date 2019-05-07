@@ -7,7 +7,7 @@ export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # エディタ
-export EDITOR=/usr/bin/vim
+export EDITOR=/usr/local/bin/vim
 
 # ページャ
 export PAGER=/usr/local/bin/vimpager
@@ -119,6 +119,9 @@ alias grep="grep --color -n -I --exclude='*.svn-*' --exclude='entries' --exclude
 # .zshrc config
 alias zim="vim .zshrc"
 
+# relogin shell
+alias relogin="exec $SHELL -l"
+
 # ls
 alias ls="ls -G" # color for darwin
 alias ll="ls -l"
@@ -138,9 +141,16 @@ alias tnsm="tns main"
 alias tnsl="tns learn"
 
 # rbenv
-alias rex="rbenv exec"
+alias re="rbenv exec"
 alias rlo="rbenv local"
 alias rglo="rbenv global"
+
+# Rails
+alias rdm="bin/rails db:migrate"
+alias rdmr="bin/rails db:migrate:reset"
+alias rds="bin/rails db:seed"
+alias rgc="bin/rails g controller"
+alias rgm="bin/rails g model"
 
 # bundle
 alias be="bundle exec"
@@ -149,6 +159,7 @@ alias be="bundle exec"
 alias gada="git add -A"
 alias gcmm="git commit -m"
 alias gst="git status"
+alias gdi="git diff"
 alias gmg="git merge"
 alias gmgs="git merge --squash"
 alias gbr="git branch"
@@ -160,9 +171,16 @@ alias gcmail="git config --local user.mail"
 
 # dir
 alias cdd="cd !$"
-alias cdo="cd ~/Documents/doc"
-alias cpr="cd ~/project"
-alias rle="cd ~/RubymineProjects/learn"
+alias cdoc="cd ~/Documents/doc"
+alias cpro="cd ~/project"
+alias cpry="cd ~/project/pry"
+
+# minecraft
+alias mserver='cd $HOME/Library/Application\ Support/minecraft_server'
+alias mst='./minecraft_server.sh'
+
+# pyenv
+alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:/} brew"
 
 # -------------------------------------
 # キーバインド
@@ -212,6 +230,42 @@ function chpwd() { la }
 function title {
     echo -ne "\033]0;"$*"\007"
 }
+
+# -------------------------------------
 # PATH通し
+# -------------------------------------
+
+# rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+# capybara-webkit
+export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# ndenv
+export PATH="$HOME/.ndenv/bin:$PATH"
+eval "$(ndenv init -)"
+
+# nokogiri - libxml2 link
+export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig"
+
+# icu4c - Yarn導入時
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+
+# -------------------------------------
+# jsc
+# -------------------------------------
+
+if [[ "$OSTYPE" =~ darwin ]];then
+  jscpath="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources"
+  if [ -f $jscpath/jsc ];then
+    export PATH=$PATH:$jscpath
+  fi
+fi
+
